@@ -3,156 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layanan Premium - Faures Edge</title>
-    
+    <title>Layanan - FauRes Edge</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="assets/css/services-dark.css">
-</head>
-<body class="bg-[#0a0a0a] text-white font-[Plus_Jakarta_Sans] antialiased selection:bg-blue-500 selection:text-white">
-
-    <div id="header-placeholder" class="sticky top-0 z-50"></div>
-
-
-    <main class="pt-32 pb-24 px-4 sm:px-6 relative overflow-hidden">
+    <style>
+        /* Base Settings */
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #ffffff; /* BACKGROUND PUTIH */
+        }
         
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+        /* Smooth Hover Animation */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .service-card:hover {
+            transform: translateY(-10px); /* Efek naik ke atas */
+            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+        }
 
-        <div class="container mx-auto max-w-[1400px]"> <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-blue-500 font-bold tracking-widest text-xs uppercase mb-3 block">Pricing & Packages</span>
-                <h1 class="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight leading-tight">Solusi Digital <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Premium</span></h1>
-                <p class="text-gray-400 text-lg">Pilih paket yang sesuai dengan skala bisnis Anda. Transparan & Profesional.</p>
+        /* Checkmark Icon Color */
+        .check-icon { color: #10b981; /* Hijau */ }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f9fafb; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 selection:bg-black selection:text-white">
+
+    <div id="header-placeholder"></div>
+
+    <main class="py-24 px-4 md:px-8">
+        <div class="container mx-auto max-w-7xl">
+            
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <span class="text-blue-600 font-bold tracking-wider uppercase text-sm mb-2 block">Layanan Kami</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">Solusi Digital Berkualitas Tinggi.</h1>
+                <p class="text-gray-500 text-lg leading-relaxed">Pilih paket yang sesuai dengan kebutuhan bisnis Anda. Transparan, profesional, dan hasil memukau.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <div class="service-card group">
-                    <div class="p-8 flex flex-col h-full">
-                        <div class="icon-box bg-blue-500/10 text-blue-400">
-                            <i class="fas fa-rocket text-2xl"></i>
-                        </div>
-                        
-                        <h3 class="text-xl font-bold mt-6 mb-2 text-white">Landing Page</h3>
-                        <p class="text-gray-400 text-sm line-clamp-2 mb-6">Halaman penjualan satu muka (Single Page) fokus konversi tinggi.</p>
-                        
-                        <div class="mt-auto">
-                            <div class="mb-6">
-                                <span class="text-xs text-gray-500 uppercase font-semibold">Mulai Dari</span>
-                                <div class="text-2xl font-bold text-white">Rp 350.000</div>
-                            </div>
-                            
-                            <ul class="space-y-3 mb-8 text-sm text-gray-300">
-                                <li class="flex items-center gap-3"><i class="fas fa-check text-blue-500"></i> Desain Modern</li>
-                                <li class="flex items-center gap-3"><i class="fas fa-check text-blue-500"></i> Responsive Mobile</li>
-                                <li class="flex items-center gap-3"><i class="fas fa-check text-blue-500"></i> CTA Button</li>
-                            </ul>
-                            
-                            <a href="https://wa.me/6285656972135?text=Halo%20Faures%20Edge,%20saya%20mau%20order%20Landing%20Page" class="btn-cta bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-900/20">
-                                Pesan via WA
-                            </a>
+                <div class="service-card bg-white rounded-[2rem] p-8 border border-gray-200 shadow-sm flex flex-col h-full relative overflow-hidden group hover:border-blue-200">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Landing Page</h3>
+                    <p class="text-gray-500 text-sm mb-6">Cocok untuk portofolio pribadi atau promosi satu produk.</p>
+
+                    <div class="mb-8">
+                        <span class="text-sm text-gray-400 font-medium">Mulai</span>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-sm font-semibold text-gray-900">Rp</span>
+                            <span class="text-4xl font-extrabold text-gray-900 tracking-tight">350rb</span>
                         </div>
                     </div>
+
+                    <hr class="border-gray-100 mb-8">
+
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-start gap-3 text-gray-600 text-sm">
+                            <svg class="w-5 h-5 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            One-Page Website (Modern)
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-600 text-sm">
+                            <svg class="w-5 h-5 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Responsive (HP & Laptop)
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-600 text-sm">
+                            <svg class="w-5 h-5 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Link Social Media
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-600 text-sm">
+                            <svg class="w-5 h-5 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Revisi Ringan 2x
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/6285656972135?text=Halo%20FauRes%20Edge,%20saya%20tertarik%20paket%20Landing%20Page" class="w-full block bg-white border-2 border-gray-200 text-gray-900 hover:border-black hover:bg-black hover:text-white font-bold py-4 rounded-xl text-center transition-all duration-300">
+                        Pilih Paket
+                    </a>
                 </div>
 
-                <div class="service-card group relative">
-                    <div class="absolute top-0 right-0 bg-gradient-to-l from-purple-600 to-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-2xl">
-                        POPULAR
+                <div class="service-card bg-white rounded-[2rem] p-8 border-2 border-blue-600 shadow-xl flex flex-col h-full relative overflow-hidden z-10 scale-105 md:scale-105 transform origin-center">
+                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-bl-2xl uppercase tracking-wider">
+                        Paling Laris
                     </div>
 
-                    <div class="p-8 flex flex-col h-full">
-                        <div class="icon-box bg-purple-500/10 text-purple-400">
-                            <i class="fas fa-building text-2xl"></i>
-                        </div>
-                        
-                        <h3 class="text-xl font-bold mt-6 mb-2 text-white">Company Profile</h3>
-                        <p class="text-gray-400 text-sm line-clamp-2 mb-6">Website multi-halaman profesional untuk branding perusahaan.</p>
-                        
-                        <div class="mt-auto">
-                            <div class="mb-6">
-                                <span class="text-xs text-gray-500 uppercase font-semibold">Mulai Dari</span>
-                                <div class="text-2xl font-bold text-white">Rp 850.000</div>
-                            </div>
-                            
-                            <ul class="space-y-3 mb-8 text-sm text-gray-300">
-                                <li class="flex items-center gap-3"><i class="fas fa-check text-purple-500"></i> Up to 5 Halaman</li>
-                                <li class="flex items-center gap-3"><i class="fas fa-check text-purple-500"></i> SEO Basic</li>
-                                <li class="flex items-center gap-3"><i class="fas fa-check text-purple-500"></i> Free Domain .com</li>
-                            </ul>
-                            
-                            <a href="https://wa.me/6285656972135?text=Halo%20Faures%20Edge,%20saya%20mau%20order%20Company%20Profile" class="btn-cta bg-purple-600 hover:bg-purple-500 shadow-lg shadow-purple-900/20">
-                                Pesan via WA
-                            </a>
+                    <div class="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-blue-200">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Company Profile</h3>
+                    <p class="text-gray-500 text-sm mb-6">Website profesional lengkap untuk bisnis & UMKM.</p>
+
+                    <div class="mb-8">
+                        <span class="text-sm text-gray-400 font-medium">Mulai</span>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-sm font-semibold text-gray-900">Rp</span>
+                            <span class="text-4xl font-extrabold text-blue-600 tracking-tight">750rb</span>
                         </div>
                     </div>
+
+                    <hr class="border-gray-100 mb-8">
+
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-start gap-3 text-gray-700 font-medium text-sm">
+                            <div class="bg-green-100 rounded-full p-1"><svg class="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+                            5 Halaman (Home, About, Contact)
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 font-medium text-sm">
+                            <div class="bg-green-100 rounded-full p-1"><svg class="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+                            Desain Premium & Animasi
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 font-medium text-sm">
+                            <div class="bg-green-100 rounded-full p-1"><svg class="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+                            SEO Basic (Google Search)
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 font-medium text-sm">
+                            <div class="bg-green-100 rounded-full p-1"><svg class="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+                            Gratis Domain .com (1 Tahun)
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/6285656972135?text=Halo%20FauRes%20Edge,%20saya%20tertarik%20paket%20Company%20Profile" class="w-full block bg-blue-600 text-white font-bold py-4 rounded-xl text-center shadow-lg hover:bg-blue-700 hover:shadow-blue-500/30 transition-all duration-300 transform hover:-translate-y-1">
+                        Pesan Sekarang
+                    </a>
                 </div>
 
-                <div class="service-card group">
-                    <div class="p-8 flex flex-col h-full">
-                        <div class="icon-box bg-pink-500/10 text-pink-400">
-                            <i class="fas fa-paint-brush text-2xl"></i>
-                        </div>
-                        
-                        <h3 class="text-xl font-bold mt-6 mb-2 text-white">UI Refine</h3>
-                        <p class="text-gray-400 text-sm line-clamp-2 mb-6">Redesign tampilan web lama menjadi lebih fresh dan modern.</p>
-                        
-                        <div class="mt-auto">
-                            <div class="mb-6">
-                                <span class="text-xs text-gray-500 uppercase font-semibold">Mulai Dari</span>
-                                <div class="text-2xl font-bold text-white">Rp 250.000</div>
-                            </div>
-                            
-                            <ul class="space-y-3 mb-8 text-sm text-gray-300">
-                                <li class="flex items-center gap-3"><i class="fas fa-check text-pink-500"></i> Modern Layout</li>
-                                <li class="flex items-center gap-3"><i class="fas fa-check text-pink-500"></i> Color Grading</li>
-                                <li class="flex items-center gap-3"><i class="fas fa-check text-pink-500"></i> Font Upgrade</li>
-                            </ul>
-                            
-                            <a href="https://wa.me/6285656972135?text=Halo%20Faures%20Edge,%20saya%20mau%20order%20UI%20Refine" class="btn-cta bg-pink-600 hover:bg-pink-500 shadow-lg shadow-pink-900/20">
-                                Pesan via WA
-                            </a>
+                <div class="service-card bg-white rounded-[2rem] p-8 border border-gray-200 shadow-sm flex flex-col h-full relative overflow-hidden group hover:border-gray-400">
+                    <div class="w-14 h-14 bg-gray-900 rounded-2xl flex items-center justify-center text-white mb-6 group-hover:rotate-12 transition-transform duration-300">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Custom App</h3>
+                    <p class="text-gray-500 text-sm mb-6">Sistem kompleks, Toko Online, atau Web Aplikasi.</p>
+
+                    <div class="mb-8">
+                        <span class="text-sm text-gray-400 font-medium">Diskusi</span>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-sm font-semibold text-gray-900">Mulai</span>
+                            <span class="text-4xl font-extrabold text-gray-900 tracking-tight">1.5jt+</span>
                         </div>
                     </div>
+
+                    <hr class="border-gray-100 mb-8">
+
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-start gap-3 text-gray-600 text-sm">
+                            <svg class="w-5 h-5 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Fitur Custom (Login, Admin, dll)
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-600 text-sm">
+                            <svg class="w-5 h-5 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Database Integration
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-600 text-sm">
+                            <svg class="w-5 h-5 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Payment Gateway (Dana/QRIS)
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-600 text-sm">
+                            <svg class="w-5 h-5 check-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Maintenance Bulanan
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/6285656972135?text=Halo%20FauRes%20Edge,%20saya%20ingin%20diskusi%20tentang%20Custom%20Web%20App" class="w-full block bg-black text-white font-bold py-4 rounded-xl text-center hover:bg-gray-800 transition-all duration-300">
+                        Konsultasi Dulu
+                    </a>
                 </div>
 
-                <div class="service-card group">
-                    <div class="p-8 flex flex-col h-full">
-                        <div class="icon-box bg-green-500/10 text-green-400">
-                            <i class="fas fa-bug text-2xl"></i>
-                        </div>
-                        
-                        <h3 class="text-xl font-bold mt-6 mb-2 text-white">Bug Fix</h3>
-                        <p class="text-gray-400 text-sm line-clamp-2 mb-6">Perbaikan error coding, layout berantakan, atau fitur macet.</p>
-                        
-                        <div class="mt-auto">
-                            <div class="mb-6">
-                                <span class="text-xs text-gray-500 uppercase font-semibold">Mulai Dari</span>
-                                <div class="text-2xl font-bold text-white">Rp 100.000</div>
-                            </div>
-                            
-                            <ul class="space-y-3 mb-8 text-sm text-gray-300">
-                                <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> Diagnosa Cepat</li>
-                                <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> Fix HTML/CSS/PHP</li>
-                                <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> Garansi Normal</li>
-                            </ul>
-                            
-                            <a href="https://wa.me/6285656972135?text=Halo%20Faures%20Edge,%20saya%20butuh%20jasa%20Bug%20Fix" class="btn-cta bg-green-600 hover:bg-green-500 shadow-lg shadow-green-900/20">
-                                Pesan via WA
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            </div>
 
+            <div class="mt-20 text-center">
+                <p class="text-gray-400 italic font-medium">"Bingung pilih paket? Chat kami, gratis konsultasi sepuasnya."</p>
             </div>
         </div>
     </main>
-
-
-    <div id="footer-placeholder"></div>
-
-    <script src="assets/js/main.js"></script>
 
 </body>
 </html>
