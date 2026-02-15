@@ -1,65 +1,515 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Faures Edge</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body class="bg-white text-gray-900 selection:bg-black selection:text-white">
+    <title>Faures Edge | Creative Digital Agency</title>
+    <meta name="description" content="Jasa pembuatan website profesional dan desain UI/UX premium.">
     
-    <div id="header-placeholder"></div>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <main class="animate-fade-in">
-        <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-            <div class="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-l from-gray-50 to-transparent opacity-50"></div>
-            <div class="container mx-auto px-4 md:px-8 text-center max-w-4xl">
-                <div class="inline-flex items-center gap-3 mb-10 group">
-                    <span class="status-dot"></span>
-                    <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 group-hover:text-black transition-colors duration-500">
-                        Currently Open for New Projects
-                    </span>
-                </div>
-                
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight mb-8">Membangun Identitas <br/><span class="bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-black">Digital yang Premium.</span></h1>
-                <p class="text-lg md:text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">Solusi joki website profesional untuk Landing Page, Company Profile, hingga perbaikan sistem dengan hasil maksimal.</p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="https://wa.me/6285656972135?text=Halo%20Faures%20Edge,%20saya%20ingin%20konsultasi%20mengenai%20layanan%20Anda." target="_blank" class="w-full sm:w-auto px-10 py-4 bg-black text-white rounded-full font-bold text-lg hover:bg-gray-800 transition-all shadow-2xl hover:shadow-black/20 flex items-center justify-center gap-2">
-                        Konsultasi Gratis
-                    </a>
-                    <a href="layanan.html" class="w-full sm:w-auto px-10 py-4 bg-white text-black border border-gray-200 rounded-full font-bold text-lg hover:border-black transition-all block">
-                        Lihat Layanan
-                    </a>
-                </div>
-            </div>
-        </section>
+    <style>
+        /* =========================================
+           RESET & VARIABLES (LIGHT THEME VERSION)
+           ========================================= */
+        :root {
+            /* Warna Cerah / Light Mode */
+            --bg-body: #ffffff;
+            --bg-secondary: #f8f9fa; /* Abu sangat muda untuk section selang-seling */
+            --bg-card: #ffffff;
+            --text-primary: #111111;
+            --text-secondary: #555555;
+            --border-color: #e5e7eb;
+            
+            /* Aksen Tetap Elegan */
+            --accent-color: #111111; /* Hitam pekat sebagai aksen utama */
+            --accent-hover: #333333;
+            --nav-glass: rgba(255, 255, 255, 0.85); /* Glass effect putih */
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-lg: 1.5rem; /* Rounded corner besar seperti request */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* Container Utility */
+        .container {
+            width: 100%;
+            padding: 0 1.5rem;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        /* Section Spacing */
+        section { padding: 6rem 0; }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: var(--text-primary);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
         
-        <section class="py-20 bg-gray-50">
-            <div class="container mx-auto px-4 md:px-8 text-center">
-                <h2 class="text-3xl font-bold mb-12">Kenapa Faures Edge?</h2>
-                <div class="grid md:grid-cols-3 gap-8 text-left">
-                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-                        <h3 class="font-bold text-xl mb-4">Efisiensi Tinggi</h3>
-                        <p class="text-gray-500 text-sm">Kami memahami waktu adalah uang. Pengerjaan cepat tanpa mengurangi kualitas estetika.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-                        <h3 class="font-bold text-xl mb-4">Desain Modern</h3>
-                        <p class="text-gray-500 text-sm">Selalu mengikuti tren UI/UX terbaru agar website Anda terlihat relevan dan profesional.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-                        <h3 class="font-bold text-xl mb-4">Garansi Penuh</h3>
-                        <p class="text-gray-500 text-sm">Setiap project dilengkapi dengan garansi perbaikan jika ditemukan kendala teknis.</p>
-                    </div>
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            font-size: 1.1rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--text-primary);
+            color: #fff;
+            border: 2px solid var(--text-primary);
+        }
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+        .btn-secondary:hover {
+            border-color: var(--text-primary);
+            background-color: var(--text-primary);
+            color: #fff;
+        }
+
+        /* =========================================
+           1. NAVBAR (Sticky & Glassmorphism)
+           ========================================= */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--nav-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 1.2rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .nav-menu { display: flex; gap: 2.5rem; }
+
+        .nav-link {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active { color: var(--text-primary); }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* =========================================
+           2. HERO SECTION
+           ========================================= */
+        .hero {
+            min-height: 85vh; /* Sedikit lebih pendek agar konten bawah terlihat */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            /* Background sangat halus */
+            background: radial-gradient(circle at 50% 50%, #f3f4f6 0%, #ffffff 70%);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* =========================================
+           3. INFINITE TECH MARQUEE (Monochrome)
+           ========================================= */
+        .marquee-section {
+            padding: 2.5rem 0;
+            background-color: var(--text-primary); /* Hitam agar kontras */
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .marquee-wrapper {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .marquee-content {
+            display: flex;
+            gap: 4rem;
+            animation: scroll 25s linear infinite;
+            padding-left: 4rem;
+        }
+
+        .tech-item {
+            font-size: 1.5rem;
+            font-weight: 700;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            opacity: 0.8;
+        }
+        
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+
+        /* =========================================
+           4. SERVICES TEASER
+           ========================================= */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: transparent;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        /* =========================================
+           5. FEATURED WORKS (PORTFOLIO GRID UPDATE)
+           ========================================= */
+        .portfolio-grid {
+            display: grid;
+            /* Mengubah grid menjadi 3 kolom sesuai request 3 item */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* Card Style meniru style request user */
+        .portfolio-card {
+            display: block;
+            group: relative;
+        }
+
+        .portfolio-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem; /* Rounded 3xl */
+            background-color: #f3f4f6;
+            aspect-ratio: 16/10;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease-in-out;
+        }
+
+        .portfolio-card:hover .portfolio-img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .portfolio-tag {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .portfolio-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           6. FAQ & CTA
+           ========================================= */
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1rem;
+        }
+        .faq-item summary {
+            padding: 1.5rem 0;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex; justify-content: space-between;
+        }
+        .faq-item p { padding-bottom: 1.5rem; color: var(--text-secondary); }
+
+        .cta-section {
+            background-color: var(--text-primary); /* Hitam */
+            color: #fff;
+            text-align: center;
+            border-radius: 3rem; /* Membulat seperti kartu */
+            margin: 0 1.5rem 4rem 1.5rem; /* Margin kiri kanan */
+            padding: 6rem 2rem;
+        }
+        
+        .cta-btn {
+            background-color: #fff;
+            color: #000;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            display: inline-block;
+        }
+        .cta-btn:hover { transform: scale(1.05); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar .nav-menu { display: none; }
+            .menu-toggle { display: block; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .portfolio-grid { grid-template-columns: 1fr; } /* Stack di HP */
+            .cta-section { border-radius: 1.5rem; padding: 4rem 1.5rem; margin: 0 1rem 3rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">FauRes Edge.</a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="layanan.html" class="nav-link">Layanan</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="kontak.html" class="nav-link">Kontak</a></li>
+            </ul>
+            
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>Membangun Identitas<br>Digital yang Premium.</h1>
+            <p>Solusi website profesional untuk bisnis Anda. Desain bersih, cepat, dan berorientasi pada hasil.</p>
+            <div style="display: flex; justify-content: center; gap: 1rem;">
+                <a href="https://wa.me/6285656972135" class="btn btn-primary">Konsultasi Gratis</a>
+                <a href="#portfolio" class="btn btn-secondary">Lihat Karya</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="marquee-section">
+        <div class="marquee-wrapper">
+            <div class="marquee-content">
+                <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
+                <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
+                <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
+                <span class="tech-item"><i class="fab fa-react"></i> React</span>
+                <span class="tech-item"><i class="fab fa-php"></i> PHP</span>
+                <span class="tech-item"><i class="fab fa-laravel"></i> Laravel</span>
+                <span class="tech-item"><i class="fas fa-wind"></i> Tailwind</span>
+                <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
+                <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
+                <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
+                <span class="tech-item"><i class="fab fa-react"></i> React</span>
+                <span class="tech-item"><i class="fab fa-php"></i> PHP</span>
+                <span class="tech-item"><i class="fab fa-laravel"></i> Laravel</span>
+                <span class="tech-item"><i class="fas fa-wind"></i> Tailwind</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Layanan Unggulan</h2>
+            <p class="section-subtitle">Fokus pada kualitas visual dan fungsionalitas.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3>Web Development</h3>
+                    <p style="color: #666; font-size: 0.95rem;">Website responsif dengan performa tinggi dan struktur kode SEO Friendly.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
+                    <h3>UI/UX Design</h3>
+                    <p style="color: #666; font-size: 0.95rem;">Desain antarmuka modern yang memanjakan mata dan mudah digunakan.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Optimization</h3>
+                    <p style="color: #666; font-size: 0.95rem;">Optimasi kecepatan loading dan keamanan untuk performa maksimal.</p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <div id="footer-placeholder"></div>
+    <section id="portfolio" style="background-color: var(--bg-secondary);">
+        <div class="container">
+            <h2 class="section-title">Karya Pilihan</h2>
+            <p class="section-subtitle">Showcase project terbaru yang telah kami kerjakan.</p>
+            
+            <div class="portfolio-grid">
+                
+                <a href="https://lspkopi.com" target="_blank" class="portfolio-card">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://files.imagetourl.net/uploads/1769840410102-395fbd7a-7cb8-457a-af46-2981ab3371e0.webp" alt="LSP Kopi Website" class="portfolio-img"/>
+                    </div>
+                    <h3 class="portfolio-title">LSP Kopi Professional</h3>
+                    <span class="portfolio-tag">Project: Web Sertifikasi</span>
+                    <p class="portfolio-desc">Platform resmi Lembaga Sertifikasi Profesi Kopi dengan integrasi data.</p>
+                </a>
 
-    <script src="assets/js/main.js"></script>
+                <a href="https://dilema-id.netlify.app/" target="_blank" class="portfolio-card">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://files.imagetourl.net/uploads/1769840456368-ca6606f7-8d89-48d9-87c9-1f3b07eb3a5a.webp" alt="Dilema Kopi Branding" class="portfolio-img"/>
+                    </div>
+                    <h3 class="portfolio-title">Dilema Kopi ID</h3>
+                    <span class="portfolio-tag">Project: Landing Page & Branding</span>
+                    <p class="portfolio-desc">Web profile coffee shop dengan sentuhan estetika modern.</p>
+                </a>
+
+                <a href="http://ganishop.kesug.com" target="_blank" class="portfolio-card">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://files.imagetourl.net/uploads/1769840557809-5ddf65c6-6194-46b8-bd97-fe82b0d41ce2.webp" alt="Gani Shop Store" class="portfolio-img"/>
+                    </div>
+                    <h3 class="portfolio-title">Gani Shop Store</h3>
+                    <span class="portfolio-tag">Project: E-Commerce</span>
+                    <p class="portfolio-desc">Toko online responsif dengan fitur katalog belanja yang lengkap.</p>
+                </a>
+
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="portfolio.html" class="btn btn-secondary">Lihat Semua Portfolio <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="section-title">Sering Ditanyakan</h2>
+            <div style="margin-top: 3rem;">
+                <details class="faq-item">
+                    <summary>Berapa lama proses pembuatan?</summary>
+                    <p>Estimasi 3-7 hari kerja tergantung kompleksitas fitur yang diinginkan.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Apakah termasuk domain & hosting?</summary>
+                    <p>Ya, paket kami sudah "All-in-One", Anda terima beres tinggal pakai.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Apakah website mobile-friendly?</summary>
+                    <p>Pasti. Kami menggunakan pendekatan Mobile-First agar tampilan sempurna di semua perangkat.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-section">
+        <h2>Siap mendigitalkan bisnis Anda?</h2>
+        <p style="margin-top: 1rem; color: #ccc;">Konsultasikan kebutuhan Anda sekarang juga.</p>
+        <a href="https://wa.me/6285656972135" class="cta-btn">
+            <i class="fab fa-whatsapp"></i> Hubungi via WhatsApp
+        </a>
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid #eee; font-size: 0.9rem; color: #666;">
+        &copy; 2026 Faures Edge. All Rights Reserved.
+    </footer>
+
 </body>
 </html>
