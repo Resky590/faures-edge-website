@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - FauRes Edge | Mari Mulai Project Anda</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* ========================================================
+           UI/UX ENHANCEMENTS (Professional Clean 2.0 - Agency Edition)
+           ======================================================== */
+        
+        :root {
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-base: all 0.7s var(--ease-out-expo);
+            --black: #0f1113;
+            --white: #ffffff;
+            --border-color: #eaeaee;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            background-color: var(--white);
+            color: var(--black);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Architectural Grid Background */
+        .bg-grid-layout {
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px);
+        }
+
+        /* Reveal Animation Engine */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo);
+            will-change: opacity, transform;
+        }
+        .reveal-up.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Custom Button */
+        .btn-black {
+            background: var(--black);
+            color: var(--white);
+            padding: 1.25rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            transition: var(--transition-base);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+        }
+        .btn-black:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            background: #222;
+        }
+
+        /* Contact Cards */
+        .contact-card-info {
+            background: var(--black);
+            color: var(--white);
+            border-radius: 2rem;
+            padding: 3rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-card-cta {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 2rem;
+            padding: 3rem;
+            height: 100%;
+            transition: var(--transition-base);
+        }
+        .contact-card-cta:hover {
+            border-color: var(--black);
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0; left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--black);
+            z-index: 100;
+        }
+
+        .header-scrolled {
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body class="antialiased bg-grid-layout selection:bg-black selection:text-white">
+
+    <div class="scroll-progress" id="progress-bar"></div>
+
+    <!-- HEADER PLACEHOLDER -->
+    <div id="header-placeholder" class="fixed top-0 w-full z-50 transition-all duration-300"></div>
+
+    <main class="relative z-0 pt-32 pb-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            
+            <!-- Hero Header Section -->
+            <div class="text-center mb-24 reveal-up">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-black text-white mb-6">
+                    <span class="text-[9px] font-black uppercase tracking-[0.3em]">Contact Us</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black text-black tracking-tighter mb-8 leading-[0.9]">
+                    MARI MULAI <br> <span class="text-transparent" style="-webkit-text-stroke: 1.5px #000;">PROJECT ANDA.</span>
+                </h1>
+                <p class="text-gray-500 text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
+                    Konsultasikan ide Anda secara gratis dan biarkan tim ahli kami mengubahnya menjadi kenyataan digital yang luar biasa.
+                </p>
+            </div>
+
+            <!-- Contact Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                
+                <!-- Left: Info Card (Black) -->
+                <div class="contact-card-info reveal-up">
+                    <div>
+                        <h3 class="text-2xl font-black uppercase tracking-tighter mb-10">Informasi Kontak</h3>
+                        <div class="space-y-8">
+                            <div class="flex items-center gap-5 group">
+                                <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-black transition-all">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 text-[10px] font-black uppercase tracking-widest mb-1">Email Resmi</p>
+                                    <p class="font-bold text-lg">fauresedge80@gmail.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-5 group">
+                                <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-black transition-all">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 text-[10px] font-black uppercase tracking-widest mb-1">Jam Operasional</p>
+                                    <p class="font-bold text-lg">Sen — Sab (09:00 - 21:00 WITA)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-16 pt-8 border-t border-white/10">
+                        <p class="text-gray-500 text-sm italic font-medium">"Respon cepat di jam kerja, solusi tepat untuk setiap tantangan."</p>
+                    </div>
+                </div>
+
+                <!-- Right: WhatsApp Card (White) -->
+                <div class="contact-card-cta text-center flex flex-col justify-center items-center reveal-up delay-100">
+                    <div class="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center text-green-500 mb-8 border border-green-100">
+                        <i class="fab fa-whatsapp text-5xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-black text-black uppercase tracking-tighter mb-4">Chat WhatsApp</h3>
+                    <p class="text-gray-500 mb-10 max-w-xs font-medium leading-relaxed">
+                        Hubungi kami langsung untuk respon instan dan diskusi project yang lebih fleksibel serta personal.
+                    </p>
+                    <a href="https://wa.me/6285656972135?text=Halo%20Faures%20Edge,%20saya%20ingin%20konsultasi%20mengenai%20layanan%20Anda." target="_blank" class="btn-black">
+                        Mulai Chat Sekarang <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom Editorial Section -->
+            <div class="text-center p-16 border-2 border-dashed border-gray-100 rounded-[2.5rem] reveal-up delay-200">
+                <h4 class="text-2xl font-black text-black tracking-tight mb-4 italic">"Membangun Masa Depan Digital Anda, Hari Ini."</h4>
+                <p class="text-gray-400 font-bold uppercase text-[10px] tracking-[0.4em]">Faures Edge Team — Your Digital Partner</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll Reveal Engine
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal-up');
+            revealElements.forEach(el => observer.observe(el));
+
+            // Navbar Dynamic Scroll & Progress Bar
+            const headerPlaceholder = document.getElementById('header-placeholder');
+            const progressBar = document.getElementById('progress-bar');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    headerPlaceholder.classList.add('header-scrolled');
+                } else {
+                    headerPlaceholder.classList.remove('header-scrolled');
+                }
+
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                if (progressBar) progressBar.style.width = scrolled + "%";
+            });
+
+            // Handle initial load visibility
+            setTimeout(() => {
+                revealElements.forEach(el => {
+                    if(el.getBoundingClientRect().top < window.innerHeight) {
+                        el.classList.add('is-visible');
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang - FauRes Edge | Kreativitas & Teknologi</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* ========================================================
+           UI/UX ENHANCEMENTS (Professional Clean 2.0 - Agency Edition)
+           ======================================================== */
+        
+        :root {
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-base: all 0.7s var(--ease-out-expo);
+            --black: #0f1113;
+            --white: #ffffff;
+            --border-color: #eaeaee;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            background-color: var(--white);
+            color: var(--black);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Architectural Grid Background */
+        .bg-grid-layout {
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px);
+        }
+
+        /* Reveal Animation Engine */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo);
+            will-change: opacity, transform;
+        }
+        .reveal-up.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Interactive Card Style (Inverted on Hover) */
+        .card-value {
+            border: 1px solid var(--border-color);
+            background: var(--white);
+            transition: var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+        .card-value:hover {
+            border-color: var(--black);
+            transform: translateY(-8px);
+        }
+        .card-value::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--black);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.5s var(--ease-out-expo);
+            z-index: 0;
+        }
+        .card-value:hover::before {
+            transform: scaleY(1);
+        }
+        .card-value:hover * {
+            color: var(--white) !important;
+            z-index: 1;
+        }
+
+        /* Tool Badges Minimalist */
+        .tool-tag {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+        .tool-tag:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0; left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--black);
+            z-index: 100;
+        }
+
+        .header-scrolled {
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body class="antialiased bg-grid-layout selection:bg-black selection:text-white">
+
+    <div class="scroll-progress" id="progress-bar"></div>
+
+    <!-- HEADER PLACEHOLDER -->
+    <div id="header-placeholder" class="fixed top-0 w-full z-50 transition-all duration-300"></div>
+
+    <main class="relative z-0 pt-32 pb-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Hero Grid Section -->
+            <div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center mb-32">
+                <div class="reveal-up">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-black text-white mb-8">
+                        <span class="text-[9px] font-black uppercase tracking-[0.3em]">Identity & Vision</span>
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-black text-black tracking-tighter mb-10 leading-[0.9]">
+                        KREATIVITAS <br> <span class="text-transparent" style="-webkit-text-stroke: 1.5px #000;">& TEKNOLOGI.</span>
+                    </h1>
+                    <p class="text-gray-600 text-lg md:text-xl font-medium leading-relaxed mb-8">
+                        Faures Edge lahir dari keinginan untuk memberikan solusi digital yang tidak hanya berfungsi secara teknis, tetapi juga memiliki estetika premium yang mengangkat nilai sebuah brand.
+                    </p>
+                    <p class="text-gray-500 text-base leading-relaxed font-medium">
+                        Kami percaya bahwa setiap piksel memiliki peran dalam membangun kepercayaan pelanggan. Dengan pendekatan minimalis, kami membuang kerumitan dan menyisakan hanya fungsionalitas murni.
+                    </p>
+                </div>
+                
+                <div class="relative reveal-up delay-200">
+                    <div class="aspect-square rounded-[2rem] bg-white border border-gray-100 flex items-center justify-center p-12 overflow-hidden shadow-2xl relative group">
+                        <div class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]"></div>
+                        <img src="https://image2url.com/r2/default/images/1771050595230-1961b416-b2de-43a8-a759-5988e41f5c59.webp" alt="Faures Edge Identity" class="w-2/3 h-2/3 object-contain transition-transform duration-1000 group-hover:scale-110" />
+                    </div>
+                    <!-- Counter Badge -->
+                    <div class="absolute -bottom-8 -right-4 lg:-right-8 bg-black text-white p-8 rounded-2xl shadow-2xl z-10">
+                        <div class="text-5xl font-black mb-1 tracking-tighter">50+</div>
+                        <div class="text-[9px] uppercase tracking-[0.3em] font-black opacity-60">Project Selesai</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technology Section -->
+            <div class="mb-32 reveal-up">
+                <div class="text-center mb-16">
+                    <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-gray-400 mb-4">The Stack</h2>
+                    <p class="text-3xl md:text-4xl font-black text-black tracking-tight">Teknologi & Tools</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+                    <div class="tool-tag">React.js</div>
+                    <div class="tool-tag">Next.js</div>
+                    <div class="tool-tag">Tailwind CSS</div>
+                    <div class="tool-tag">Figma</div>
+                    <div class="tool-tag">JavaScript ES6</div>
+                    <div class="tool-tag">Node.js</div>
+                    <div class="tool-tag">Laravel</div>
+                    <div class="tool-tag">Responsive Core</div>
+                    <div class="tool-tag">SEO Strategy</div>
+                </div>
+            </div>
+
+            <!-- Values Section (Bento Grid Style) -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Value 1 -->
+                <div class="card-value p-12 reveal-up">
+                    <div class="mb-8 relative z-10">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-black"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h3 class="text-2xl font-black mb-6 uppercase tracking-tighter relative z-10">Integritas</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10">Kami jujur dalam setiap estimasi waktu dan biaya. Tidak ada biaya tersembunyi atau janji yang tidak realistis.</p>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="card-value p-12 reveal-up delay-100">
+                    <div class="mb-8 relative z-10">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-black" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    </div>
+                    <h3 class="text-2xl font-black mb-6 uppercase tracking-tighter relative z-10">Kualitas Kode</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10">Setiap baris kode ditulis dengan presisi tinggi, terstruktur, dan mudah untuk dikembangkan di masa depan.</p>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="card-value p-12 reveal-up delay-200">
+                    <div class="mb-8 relative z-10">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-black" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-black mb-6 uppercase tracking-tighter relative z-10">Kemitraan</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10">Kepuasan Anda adalah prioritas. Kami bekerja sebagai partner strategis untuk pertumbuhan bisnis Anda.</p>
+                </div>
+            </div>
+
+            <!-- Bottom Editorial Section -->
+            <div class="mt-40 text-center reveal-up">
+                <h4 class="text-3xl md:text-5xl font-black text-black tracking-tighter mb-12 uppercase leading-none">Siap Meningkatkan <br> <span class="text-transparent" style="-webkit-text-stroke: 1px #000;">Standar Brand Anda?</span></h4>
+                <a href="kontak.html" class="inline-block bg-black text-white px-12 py-5 font-black uppercase text-[10px] tracking-[0.3em] rounded-sm hover:bg-gray-800 transition-all">
+                    Hubungi Tim Kami
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll Reveal Engine
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal-up');
+            revealElements.forEach(el => observer.observe(el));
+
+            // Navbar Dynamic Scroll & Progress Bar
+            const headerPlaceholder = document.getElementById('header-placeholder');
+            const progressBar = document.getElementById('progress-bar');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    headerPlaceholder.classList.add('header-scrolled');
+                } else {
+                    headerPlaceholder.classList.remove('header-scrolled');
+                }
+
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                if (progressBar) progressBar.style.width = scrolled + "%";
+            });
+
+            // Handle initial load visibility
+            setTimeout(() => {
+                revealElements.forEach(el => {
+                    if(el.getBoundingClientRect().top < window.innerHeight) {
+                        el.classList.add('is-visible');
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>

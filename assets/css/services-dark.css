@@ -1,0 +1,52 @@
+/* Styling Kartu Layanan - Dark Mode Premium */
+.service-card {
+    background-color: #111111; /* Latar belakang kartu gelap */
+    border: 1px solid #27272a; /* Border abu sangat gelap */
+    border-radius: 1.5rem; /* Sudut membulat */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+/* Efek Hover Kartu */
+.service-card:hover {
+    transform: translateY(-8px); /* Naik sedikit saat hover */
+    border-color: #404040; /* Border jadi lebih terang */
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5); /* Bayangan lembut */
+    background-color: #161616; /* Warna kartu sedikit berubah */
+}
+
+/* Icon Box Styling */
+.icon-box {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .icon-box {
+    transform: scale(1.1); /* Icon membesar sedikit saat hover */
+}
+
+/* Tombol CTA (Call to Action) */
+.btn-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.875rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: white;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn-cta:hover {
+    transform: translateY(-2px);
+}

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Faures Edge | Karya Terpilih & Kualitas Premium</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* ========================================================
+           UI/UX ENHANCEMENTS (Professional Clean 2.0 - Agency Edition)
+           ======================================================== */
+        
+        :root {
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-base: all 0.7s var(--ease-out-expo);
+            --black: #0f1113;
+            --white: #ffffff;
+            --border-color: #eaeaee;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            background-color: var(--white);
+            color: var(--black);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Architectural Grid Background */
+        .bg-grid-layout {
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px);
+        }
+
+        /* Reveal Animation Engine */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo);
+            will-change: opacity, transform;
+        }
+        .reveal-up.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Portfolio Specific Styling */
+        .portfolio-img-container {
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            padding: 2px;
+            background: var(--white);
+            transition: var(--transition-base);
+        }
+        
+        .portfolio-card:hover .portfolio-img-container {
+            border-color: var(--black);
+            transform: translateY(-5px);
+        }
+
+        .portfolio-img-container img {
+            transition: transform 1.2s var(--ease-out-expo);
+            will-change: transform;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Fastwork-Style Search Bar */
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            transition: var(--transition-base);
+        }
+        .search-input {
+            width: 100%;
+            padding: 1.25rem 1.5rem 1.25rem 3.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            background: var(--white);
+            font-weight: 600;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-input:focus {
+            border-color: var(--black);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            transition: color 0.3s ease;
+        }
+        .search-input:focus + .search-icon {
+            color: var(--black);
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0; left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--black);
+            z-index: 100;
+        }
+
+        .header-scrolled {
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: var(--white); }
+        ::-webkit-scrollbar-thumb { background: var(--black); }
+
+        /* Mobile specific adjustments for 2 columns */
+        @media (max-width: 640px) {
+            .portfolio-title { font-size: 1.125rem; }
+            .portfolio-meta { font-size: 8px; }
+            .portfolio-desc { font-size: 11px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        }
+    </style>
+</head>
+<body class="antialiased bg-grid-layout selection:bg-black selection:text-white">
+
+    <div class="scroll-progress" id="progress-bar"></div>
+
+    <!-- HEADER PLACEHOLDER -->
+    <div id="header-placeholder" class="fixed top-0 w-full z-50 transition-all duration-300"></div>
+
+    <main class="relative z-0 pt-32 pb-24 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Hero Section Portfolio -->
+            <div class="text-center mb-16 reveal-up">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-black text-white mb-6">
+                    <span class="text-[9px] font-black uppercase tracking-[0.3em]">Selected Works</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black text-black tracking-tighter mb-8 leading-[0.9]">
+                    KARYA <br> <span class="text-transparent" style="-webkit-text-stroke: 1.5px #000;">TERPILIH.</span>
+                </h1>
+                
+                <!-- Fastwork-style Search Feature -->
+                <div class="search-container mb-8">
+                    <input type="text" placeholder="Cari karya (misal: Landing Page, E-Commerce)..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                    <span class="text-black">Populer:</span>
+                    <button class="hover:text-black border-b border-transparent hover:border-black transition-all">Landing Page</button>
+                    <button class="hover:text-black border-b border-transparent hover:border-black transition-all">Company Profile</button>
+                    <button class="hover:text-black border-b border-transparent hover:border-black transition-all">Sertifikasi</button>
+                </div>
+            </div>
+
+            <!-- Portfolio Grid: 2 Columns for all devices -->
+            <div class="grid grid-cols-2 gap-4 sm:gap-8 lg:gap-12">
+                
+                <!-- Project 1 -->
+                <a href="https://lspkopi.com" target="_blank" class="portfolio-card group block reveal-up">
+                    <div class="portfolio-img-container rounded-sm mb-4 sm:mb-8">
+                        <img src="https://files.imagetourl.net/uploads/1769840410102-395fbd7a-7cb8-457a-af46-2981ab3371e0.webp" alt="LSP Kopi Website" class="w-full h-[180px] sm:h-[400px] object-cover"/>
+                    </div>
+                    <div class="flex justify-between items-start px-1 sm:px-2">
+                        <div>
+                            <h3 class="portfolio-title text-lg sm:text-2xl font-black text-black uppercase tracking-tighter">LSP Kopi Professional</h3>
+                            <p class="portfolio-meta text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1 sm:mt-2">Web Sertifikasi</p>
+                        </div>
+                        <i class="fas fa-external-link-alt text-[10px] opacity-30 group-hover:opacity-100 transition-all hidden sm:block"></i>
+                    </div>
+                    <p class="portfolio-desc text-gray-500 text-xs sm:text-sm leading-relaxed mt-2 sm:mt-4 px-1 sm:px-2">Platform resmi Lembaga Sertifikasi Profesi Kopi dengan integrasi data.</p>
+                </a>
+
+                <!-- Project 2 -->
+                <a href="https://dilema-id.netlify.app/" target="_blank" class="portfolio-card group block reveal-up delay-100">
+                    <div class="portfolio-img-container rounded-sm mb-4 sm:mb-8 lg:mt-20">
+                        <img src="https://files.imagetourl.net/uploads/1769840456368-ca6606f7-8d89-48d9-87c9-1f3b07eb3a5a.webp" alt="Dilema Kopi Branding" class="w-full h-[180px] sm:h-[400px] object-cover"/>
+                    </div>
+                    <div class="flex justify-between items-start px-1 sm:px-2">
+                        <div>
+                            <h3 class="portfolio-title text-lg sm:text-2xl font-black text-black uppercase tracking-tighter">Dilema Kopi ID</h3>
+                            <p class="portfolio-meta text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1 sm:mt-2">Landing Page</p>
+                        </div>
+                        <i class="fas fa-external-link-alt text-[10px] opacity-30 group-hover:opacity-100 transition-all hidden sm:block"></i>
+                    </div>
+                    <p class="portfolio-desc text-gray-500 text-xs sm:text-sm leading-relaxed mt-2 sm:mt-4 px-1 sm:px-2">Web profile coffee shop dengan sentuhan estetika modern.</p>
+                </a>
+
+                <!-- Project 3 -->
+                <a href="http://ganishop.kesug.com" target="_blank" class="portfolio-card group block reveal-up delay-200">
+                    <div class="portfolio-img-container rounded-sm mb-4 sm:mb-8">
+                        <img src="https://files.imagetourl.net/uploads/1769840557809-5ddf65c6-6194-46b8-bd97-fe82b0d41ce2.webp" alt="Gani Shop Store" class="w-full h-[180px] sm:h-[400px] object-cover"/>
+                    </div>
+                    <div class="flex justify-between items-start px-1 sm:px-2">
+                        <div>
+                            <h3 class="portfolio-title text-lg sm:text-2xl font-black text-black uppercase tracking-tighter">Gani Shop E-Commerce</h3>
+                            <p class="portfolio-meta text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1 sm:mt-2">Toko Online</p>
+                        </div>
+                        <i class="fas fa-external-link-alt text-[10px] opacity-30 group-hover:opacity-100 transition-all hidden sm:block"></i>
+                    </div>
+                    <p class="portfolio-desc text-gray-500 text-xs sm:text-sm leading-relaxed mt-2 sm:mt-4 px-1 sm:px-2">Platform belanja online dengan fitur katalog yang responsif.</p>
+                </a>
+
+                <!-- Project 4 -->
+                <a href="http://ippmpangkep.kesug.com" target="_blank" class="portfolio-card group block reveal-up">
+                    <div class="portfolio-img-container rounded-sm mb-4 sm:mb-8">
+                        <img src="https://files.imagetourl.net/uploads/1769840598362-6ddea288-cf2a-4d16-9ddd-b581468d47f1.webp" alt="IPPM Pangkep Portal" class="w-full h-[180px] sm:h-[400px] object-cover"/>
+                    </div>
+                    <div class="flex justify-between items-start px-1 sm:px-2">
+                        <div>
+                            <h3 class="portfolio-title text-lg sm:text-2xl font-black text-black uppercase tracking-tighter">Portal IPPM Pangkep</h3>
+                            <p class="portfolio-meta text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1 sm:mt-2">Web Organisasi</p>
+                        </div>
+                        <i class="fas fa-external-link-alt text-[10px] opacity-30 group-hover:opacity-100 transition-all hidden sm:block"></i>
+                    </div>
+                    <p class="portfolio-desc text-gray-500 text-xs sm:text-sm leading-relaxed mt-2 sm:mt-4 px-1 sm:px-2">Website informasi dan profil organisasi daerah Pangkep.</p>
+                </a>
+
+                <!-- Project 5 -->
+                <a href="http://CVMTI.42web.io" target="_blank" class="portfolio-card group block reveal-up delay-100">
+                    <div class="portfolio-img-container rounded-sm mb-4 sm:mb-8 lg:mt-20">
+                        <img src="https://files.imagetourl.net/uploads/1769840648797-8ceee8a3-4ea7-410f-a07e-a767da1d97fe.webp" alt="CV MTI Company Profile" class="w-full h-[180px] sm:h-[400px] object-cover"/>
+                    </div>
+                    <div class="flex justify-between items-start px-1 sm:px-2">
+                        <div>
+                            <h3 class="portfolio-title text-lg sm:text-2xl font-black text-black uppercase tracking-tighter">CV Mulia Tani Indonesia</h3>
+                            <p class="portfolio-meta text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1 sm:mt-2">Company Profile</p>
+                        </div>
+                        <i class="fas fa-external-link-alt text-[10px] opacity-30 group-hover:opacity-100 transition-all hidden sm:block"></i>
+                    </div>
+                    <p class="portfolio-desc text-gray-500 text-xs sm:text-sm leading-relaxed mt-2 sm:mt-4 px-1 sm:px-2">Web profil perusahaan agrikultur profesional.</p>
+                </a>
+
+            </div>
+
+            <!-- Bottom Editorial Section -->
+            <div class="mt-32 text-center reveal-up">
+                <a href="https://wa.me/6285656972135" class="inline-block bg-black text-white px-10 py-5 font-black uppercase text-[10px] tracking-[0.3em] rounded-sm hover:bg-gray-800 transition-all">
+                    Mulai Project Anda
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll Reveal Engine
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal-up');
+            revealElements.forEach(el => observer.observe(el));
+
+            // Navbar Dynamic Scroll & Progress Bar
+            const headerPlaceholder = document.getElementById('header-placeholder');
+            const progressBar = document.getElementById('progress-bar');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    headerPlaceholder.classList.add('header-scrolled');
+                } else {
+                    headerPlaceholder.classList.remove('header-scrolled');
+                }
+
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                if (progressBar) progressBar.style.width = scrolled + "%";
+            });
+
+            // Handle initial load visibility
+            setTimeout(() => {
+                revealElements.forEach(el => {
+                    if(el.getBoundingClientRect().top < window.innerHeight) {
+                        el.classList.add('is-visible');
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>

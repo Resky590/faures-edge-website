@@ -1,0 +1,37 @@
+<nav class="fixed w-full z-50 transition-all duration-300 bg-transparent py-6">
+    <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
+        <a href="/" class="flex items-center gap-3 cursor-pointer">
+            <img src="https://image2url.com/r2/default/images/1771050595230-1961b416-b2de-43a8-a759-5988e41f5c59.webp" alt="Logo" class="h-10 w-auto object-contain" />
+            <span class="font-bold text-xl tracking-tight hidden sm:block">FAURES EDGE</span>
+        </a>
+
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="/" class="nav-link text-sm font-medium transition-colors text-gray-400 hover:text-black">Home</a>
+            <a href="layanan" class="nav-link text-sm font-medium transition-colors text-gray-400 hover:text-black">Layanan</a>
+            <a href="portfolio" class="nav-link text-sm font-medium transition-colors text-gray-400 hover:text-black">Portfolio</a>
+            <a href="tentang" class="nav-link text-sm font-medium transition-colors text-gray-400 hover:text-black">Tentang</a>
+            <a href="kontak" class="nav-link text-sm font-medium transition-colors text-gray-400 hover:text-black">Kontak</a>
+        </div>
+
+        <div class="hidden md:block">
+            <a href="https://wa.me/6285656972135?text=Halo%20Faures%20Edge,%20saya%20ingin%20konsultasi%20mengenai%20layanan%20Anda." target="_blank" class="bg-black text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-all transform hover:scale-105 flex items-center gap-2">
+                 WhatsApp 
+                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-900 focus:outline-none">
+            <svg id="open-menu-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+            <svg id="close-menu-icon" class="hidden" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-lg py-4 px-4 flex flex-col space-y-4 animate-fade-in-down">
+        <a href="/" class="text-left text-lg font-medium py-2 border-b border-gray-50">Home</a>
+        <a href="layanan" class="text-left text-lg font-medium py-2 border-b border-gray-50">Layanan</a>
+        <a href="portfolio" class="text-left text-lg font-medium py-2 border-b border-gray-50">Portfolio</a>
+        <a href="tentang" class="text-left text-lg font-medium py-2 border-b border-gray-50">Tentang</a>
+        <a href="kontak" class="text-left text-lg font-medium py-2 border-b border-gray-50">Kontak</a>
+        <a href="https://wa.me/6285656972135?text=Halo%20Faures%20Edge,%20saya%20ingin%20konsultasi%20mengenai%20layanan%20Anda." class="bg-black text-white py-3 rounded-lg text-center font-bold mt-2">Chat WhatsApp</a>
+    </div>
+</nav>
