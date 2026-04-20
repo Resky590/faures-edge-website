@@ -10,7 +10,6 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- PREMIUM ENGINE CDNs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
@@ -30,7 +29,13 @@
             --border-glass: rgba(255, 255, 255, 0.08);
         }
 
-        html, body {
+        html {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
             width: 100%;
             max-width: 100%;
             overflow-x: hidden;
@@ -71,6 +76,11 @@
             opacity: 1;
             transform: translateY(0) scale(1);
         }
+
+        /* PERBAIKAN: Menambahkan CSS Delay agar efek bertahap (stagger) berfungsi */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
 
         /* Portfolio Specific Styling */
         .portfolio-img-container {
@@ -160,13 +170,11 @@
     <div class="custom-cursor" id="custom-cursor"></div>
     <div class="scroll-progress" id="progress-bar"></div>
 
-    <!-- HEADER PLACEHOLDER -->
     <div id="header-placeholder" class="fixed top-0 w-full z-50 transition-all duration-300"></div>
 
     <main class="relative z-0 pt-40 pb-24 px-4 sm:px-6">
         <div class="max-w-7xl mx-auto">
             
-            <!-- Hero Section Portfolio -->
             <div class="text-center mb-24 reveal-up">
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-white mb-8">
                     <span class="text-[9px] font-black uppercase tracking-[0.3em] text-[#0066FF]">Selected Works</span>
@@ -175,7 +183,6 @@
                     KARYA <br> <span class="text-transparent" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.8);">TERPILIH.</span>
                 </h1>
                 
-                <!-- Fastwork-style Search Feature -->
                 <div class="search-container mb-12">
                     <input type="text" placeholder="Cari karya (misal: Landing Page, E-Commerce)..." class="search-input">
                     <i class="fas fa-search search-icon"></i>
@@ -189,10 +196,8 @@
                 </div>
             </div>
 
-            <!-- Portfolio Grid: 4 Columns for Desktop, 2 for Others -->
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-10">
                 
-                <!-- Project 1 -->
                 <a href="https://lspkopi.com" target="_blank" class="portfolio-card group block reveal-up">
                     <div class="portfolio-img-container rounded-sm mb-6">
                         <img src="https://files.imagetourl.net/uploads/1769840410102-395fbd7a-7cb8-457a-af46-2981ab3371e0.webp" alt="LSP Kopi Website" class="w-full h-[180px] sm:h-[300px] object-contain bg-white/5"/>
@@ -205,7 +210,6 @@
                     </div>
                 </a>
 
-                <!-- Project 2 -->
                 <a href="https://dilema-id.netlify.app/" target="_blank" class="portfolio-card group block reveal-up delay-100">
                     <div class="portfolio-img-container rounded-sm mb-6">
                         <img src="https://files.imagetourl.net/uploads/1769840456368-ca6606f7-8d89-48d9-87c9-1f3b07eb3a5a.webp" alt="Dilema Kopi Branding" class="w-full h-[180px] sm:h-[300px] object-contain bg-white/5"/>
@@ -218,7 +222,6 @@
                     </div>
                 </a>
 
-                <!-- Project 3 -->
                 <a href="http://ganishop.kesug.com" target="_blank" class="portfolio-card group block reveal-up delay-200">
                     <div class="portfolio-img-container rounded-sm mb-6">
                         <img src="https://files.imagetourl.net/uploads/1769840557809-5ddf65c6-6194-46b8-bd97-fe82b0d41ce2.webp" alt="Gani Shop Store" class="w-full h-[180px] sm:h-[300px] object-contain bg-white/5"/>
@@ -231,7 +234,6 @@
                     </div>
                 </a>
 
-                <!-- Project 4 -->
                 <a href="http://ippmpangkep.kesug.com" target="_blank" class="portfolio-card group block reveal-up delay-300">
                     <div class="portfolio-img-container rounded-sm mb-6">
                         <img src="https://files.imagetourl.net/uploads/1769840598362-6ddea288-cf2a-4d16-9ddd-b581468d47f1.webp" alt="IPPM Pangkep Portal" class="w-full h-[180px] sm:h-[300px] object-contain bg-white/5"/>
@@ -244,7 +246,6 @@
                     </div>
                 </a>
 
-                <!-- Project 5 -->
                 <a href="http://CVMTI.42web.io" target="_blank" class="portfolio-card group block reveal-up">
                     <div class="portfolio-img-container rounded-sm mb-6">
                         <img src="https://files.imagetourl.net/uploads/1769840648797-8ceee8a3-4ea7-410f-a07e-a767da1d97fe.webp" alt="CV MTI Company Profile" class="w-full h-[180px] sm:h-[300px] object-contain bg-white/5"/>
@@ -257,7 +258,6 @@
                     </div>
                 </a>
 
-                <!-- Project 6 (New) -->
                 <div class="portfolio-card group block reveal-up delay-100">
                     <div class="portfolio-img-container rounded-sm mb-6">
                         <img src="https://res.cloudinary.com/dymz3ixvz/image/upload/q_auto/f_auto/v1776666245/Screenshot_2026-04-20_135531_m4efkt.png" alt="Portfolio 6" class="w-full h-[180px] sm:h-[300px] object-contain bg-white/5"/>
@@ -270,7 +270,6 @@
                     </div>
                 </div>
 
-                <!-- Project 7 (New) -->
                 <div class="portfolio-card group block reveal-up delay-200">
                     <div class="portfolio-img-container rounded-sm mb-6">
                         <img src="https://res.cloudinary.com/dymz3ixvz/image/upload/q_auto/f_auto/v1776666245/Screenshot_2026-04-20_140744_ttsfhu.png" alt="Portfolio 7" class="w-full h-[180px] sm:h-[300px] object-contain bg-white/5"/>
@@ -283,7 +282,6 @@
                     </div>
                 </div>
 
-                <!-- Project 8 (New) -->
                 <div class="portfolio-card group block reveal-up delay-300">
                     <div class="portfolio-img-container rounded-sm mb-6">
                         <img src="https://res.cloudinary.com/dymz3ixvz/image/upload/q_auto/f_auto/v1776666245/Screenshot_2026-04-20_135457_cdvlcp.png" alt="Portfolio 8" class="w-full h-[180px] sm:h-[300px] object-contain bg-white/5"/>
@@ -296,7 +294,6 @@
                     </div>
                 </div>
 
-                <!-- Project 9 (New) -->
                 <div class="portfolio-card group block reveal-up">
                     <div class="portfolio-img-container rounded-sm mb-6">
                         <img src="https://res.cloudinary.com/dymz3ixvz/image/upload/q_auto/f_auto/v1776666244/Screenshot_2026-04-20_135412_dxsqir.png" alt="Portfolio 9" class="w-full h-[180px] sm:h-[300px] object-contain bg-white/5"/>
@@ -311,7 +308,6 @@
 
             </div>
 
-            <!-- Bottom Editorial Section -->
             <div class="mt-40 text-center reveal-up">
                 <a href="https://wa.me/6285656972135" class="inline-block bg-white text-black px-12 py-6 font-black uppercase text-[10px] tracking-[0.3em] rounded-full hover:bg-[#0066FF] hover:text-white transition-all transform hover:scale-105">
                     Mulai Project Anda
@@ -321,24 +317,42 @@
         </div>
     </main>
 
-    <!-- FOOTER PLACEHOLDER -->
     <div id="footer-placeholder"></div>
     <script src="assets/js/main.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Scroll Reveal Engine
+            
+            // ==========================================
+            // FIX 1: SETUP LENIS SCROLL (Engine Premium)
+            // ==========================================
+            if (typeof Lenis !== 'undefined') {
+                const lenis = new Lenis({
+                    duration: 1.2,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                    smooth: true,
+                });
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+                requestAnimationFrame(raf);
+            }
+
+            // ==========================================
+            // FIX 2: INTERSECTION OBSERVER RECALIBRATION
+            // ==========================================
             const observerOptions = {
                 root: null,
-                rootMargin: '0px 0px -50px 0px',
-                threshold: 0.1
+                rootMargin: '50px 0px 50px 0px', // Diperlebar agar terbaca sebelum benar-benar masuk
+                threshold: 0 // Langsung trigger saat 0% elemen menyentuh viewport
             };
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
+                        observer.unobserve(entry.target); // Lepas observer setelah muncul
                     }
                 });
             }, observerOptions);
@@ -346,15 +360,26 @@
             const revealElements = document.querySelectorAll('.reveal-up');
             revealElements.forEach(el => observer.observe(el));
 
-            // Navbar Dynamic Scroll & Progress Bar
+            // Fallback: Paksa elemen yang ada di bagian atas layar agar langsung muncul
+            setTimeout(() => {
+                revealElements.forEach(el => {
+                    if(el.getBoundingClientRect().top <= window.innerHeight + 100) {
+                        el.classList.add('is-visible');
+                    }
+                });
+            }, 150);
+
+            // ==========================================
+            // LOGIKA HEADER & FOOTER TETAP AMAN (TIDAK DIUBAH)
+            // ==========================================
             const headerPlaceholder = document.getElementById('header-placeholder');
             const progressBar = document.getElementById('progress-bar');
 
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 20) {
-                    headerPlaceholder.classList.add('header-scrolled');
+                    if(headerPlaceholder) headerPlaceholder.classList.add('header-scrolled');
                 } else {
-                    headerPlaceholder.classList.remove('header-scrolled');
+                    if(headerPlaceholder) headerPlaceholder.classList.remove('header-scrolled');
                 }
 
                 const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -362,15 +387,7 @@
                 const scrolled = (winScroll / height) * 100;
                 if (progressBar) progressBar.style.width = scrolled + "%";
             });
-
-            // Handle initial load visibility
-            setTimeout(() => {
-                revealElements.forEach(el => {
-                    if(el.getBoundingClientRect().top < window.innerHeight) {
-                        el.classList.add('is-visible');
-                    }
-                });
-            }, 100);
+            
         });
     </script>
 </body>
