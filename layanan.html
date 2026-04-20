@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
 
     <style>
@@ -53,18 +52,17 @@
             opacity: 0.03;
         }
 
+        /* PERBAIKAN 1: Bug GPU Fix - Hapus will-change dan simplify transform */
         .reveal-up {
             opacity: 0;
-            transform: translateY(30px) scale(0.98);
+            transform: translateY(40px); 
             transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo);
-            will-change: opacity, transform;
         }
         .reveal-up.is-visible {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
         }
 
-        /* PERBAIKAN 1: Tambahkan !important agar delay tidak bentrok */
         .delay-100 { transition-delay: 100ms !important; }
         .delay-200 { transition-delay: 200ms !important; }
         .delay-300 { transition-delay: 300ms !important; }
@@ -115,6 +113,7 @@
             color: var(--bg-deep);
         }
 
+        /* PERBAIKAN 2: Tambahkan transform: translateZ(0) untuk stabilisasi hardware acceleration */
         .service-card-premium {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border-glass) !important;
@@ -126,10 +125,11 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+            transform: translateZ(0); 
         }
         .service-card-premium:hover {
             border-color: rgba(0, 102, 255, 0.4) !important;
-            transform: translateY(-10px);
+            transform: translateY(-10px) translateZ(0);
             box-shadow: 0 30px 60px -12px rgba(0, 102, 255, 0.2);
         }
 
@@ -300,7 +300,6 @@
 
             const revealElements = document.querySelectorAll('.reveal-up');
             
-            // PERBAIKAN 3: Sensor deteksi diperluas jadi 300px (Sangat Agresif)
             const observerOptions = {
                 root: null,
                 rootMargin: '300px', 
@@ -318,22 +317,16 @@
 
             revealElements.forEach(el => observer.observe(el));
 
-            // SISTEM FALLBACK BACKUP (Mendeteksi kartu yang mungkin nyangkut)
-            const forceRevealCheck = () => {
+            // PERBAIKAN 3: GARANSI 100% TAMPIL (Ultimate Failsafe)
+            // Karena ini halaman pendek, kita paksa semua sisa elemen muncul setelah 1.2 detik
+            // tanpa peduli posisi scroll. Ini mencegah kartu menyangkut akibat bug render.
+            setTimeout(() => {
                 revealElements.forEach(el => {
                     if (!el.classList.contains('is-visible')) {
-                        const rect = el.getBoundingClientRect();
-                        // Paksa muncul lebih awal sebelum masuk viewport
-                        if (rect.top <= window.innerHeight + 300) {
-                            el.classList.add('is-visible');
-                        }
+                        el.classList.add('is-visible');
                     }
                 });
-            };
-
-            window.addEventListener('scroll', forceRevealCheck);
-            window.addEventListener('load', forceRevealCheck);
-            setTimeout(forceRevealCheck, 300);
+            }, 1200);
 
             const headerPlaceholder = document.getElementById('header-placeholder');
             const progressBar = document.getElementById('progress-bar');

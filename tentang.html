@@ -10,7 +10,6 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- PREMIUM ENGINE CDNs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
@@ -30,10 +29,9 @@
             --border-glass: rgba(255, 255, 255, 0.08);
         }
 
+        /* PERBAIKAN: Hapus overflow-x: hidden dari html dan body */
         html, body {
             width: 100%;
-            max-width: 100%;
-            overflow-x: hidden;
             background-color: var(--bg-deep);
             color: var(--text-main);
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -48,32 +46,50 @@
                 linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
         }
 
-        /* Reveal Animation Engine */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+            opacity: 0.03;
+        }
+
+        /* PERBAIKAN: Animasi distabilkan untuk performa GPU */
         .reveal-up {
             opacity: 0;
-            transform: translateY(30px) scale(0.98);
+            transform: translateY(40px);
             transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo);
-            will-change: opacity, transform;
         }
         .reveal-up.is-visible {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
         }
+
+        /* PERBAIKAN: Kunci delay agar tidak ter-override */
+        .delay-100 { transition-delay: 100ms !important; }
+        .delay-200 { transition-delay: 200ms !important; }
+        .delay-300 { transition-delay: 300ms !important; }
 
         /* Interactive Card Style (Inverted on Hover) */
         .card-value {
             border: 1px solid var(--border-glass);
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             transition: var(--transition-base);
             position: relative;
             overflow: hidden;
             border-radius: 32px;
+            transform: translateZ(0); /* PERBAIKAN: Hardware acceleration lock */
         }
         .card-value:hover {
             border-color: var(--accent-blue);
-            transform: translateY(-8px);
+            transform: translateY(-8px) translateZ(0);
             background: rgba(0, 102, 255, 0.05);
+            box-shadow: 0 20px 40px -10px rgba(0, 102, 255, 0.15);
         }
         
         .card-value:hover * {
@@ -118,113 +134,119 @@
     <div class="custom-cursor" id="custom-cursor"></div>
     <div class="scroll-progress" id="progress-bar"></div>
 
-    <!-- HEADER PLACEHOLDER -->
     <div id="header-placeholder" class="fixed top-0 w-full z-50 transition-all duration-300"></div>
 
-    <main class="relative z-0 pt-40 pb-24 px-6">
-        <div class="max-w-7xl mx-auto">
-            
-            <!-- Hero Grid Section -->
-            <div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center mb-40">
-                <div class="reveal-up">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-white mb-8">
-                        <span class="text-[9px] font-black uppercase tracking-[0.3em] text-[#0066FF]">Identity & Vision</span>
-                    </div>
-                    <h1 class="text-5xl md:text-8xl font-black text-white tracking-tighter mb-10 leading-[0.9]">
-                        KREATIVITAS <br> <span class="text-transparent" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.8);">& TEKNOLOGI.</span>
-                    </h1>
-                    <p class="text-white/60 text-lg md:text-xl font-medium leading-relaxed mb-8">
-                        Faures Edge lahir dari keinginan untuk memberikan solusi digital yang tidak hanya berfungsi secara teknis, tetapi juga memiliki estetika premium yang mengangkat nilai sebuah brand.
-                    </p>
-                    <p class="text-white/40 text-base leading-relaxed font-medium">
-                        Kami percaya bahwa setiap piksel memiliki peran dalam membangun kepercayaan pelanggan. Dengan pendekatan minimalis, kami membuang kerumitan dan menyisakan hanya fungsionalitas murni.
-                    </p>
-                </div>
+    <div class="overflow-x-hidden w-full relative">
+        <main class="relative z-0 pt-40 pb-40 px-6"> <div class="max-w-7xl mx-auto">
                 
-                <div class="relative reveal-up delay-200">
-                    <div class="aspect-square rounded-[3rem] bg-white/5 border border-white/10 flex items-center justify-center p-12 overflow-hidden shadow-2xl relative group backdrop-blur-sm">
-                        <div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity bg-[radial-gradient(#0066FF_1px,transparent_1px)] [background-size:20px_20px]"></div>
-                        <img src="https://image2url.com/r2/default/images/1771050595230-1961b416-b2de-43a8-a759-5988e41f5c59.webp" alt="Faures Edge Identity" class="w-2/3 h-2/3 object-contain transition-transform duration-1000 group-hover:scale-110" />
+                <div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center mb-40">
+                    <div class="reveal-up">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-white mb-8">
+                            <span class="text-[9px] font-black uppercase tracking-[0.3em] text-[#0066FF]">Identity & Vision</span>
+                        </div>
+                        <h1 class="text-5xl md:text-8xl font-black text-white tracking-tighter mb-10 leading-[0.9]">
+                            KREATIVITAS <br> <span class="text-transparent" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.8);">& TEKNOLOGI.</span>
+                        </h1>
+                        <p class="text-white/60 text-lg md:text-xl font-medium leading-relaxed mb-8">
+                            Faures Edge lahir dari keinginan untuk memberikan solusi digital yang tidak hanya berfungsi secara teknis, tetapi juga memiliki estetika premium yang mengangkat nilai sebuah brand.
+                        </p>
+                        <p class="text-white/40 text-base leading-relaxed font-medium">
+                            Kami percaya bahwa setiap piksel memiliki peran dalam membangun kepercayaan pelanggan. Dengan pendekatan minimalis, kami membuang kerumitan dan menyisakan hanya fungsionalitas murni.
+                        </p>
                     </div>
-                    <!-- Counter Badge -->
-                    <div class="absolute -bottom-8 -right-4 lg:-right-8 bg-[#0066FF] text-white p-10 rounded-[2rem] shadow-2xl z-10 shadow-blue-500/20">
-                        <div class="text-6xl font-black mb-1 tracking-tighter">50+</div>
-                        <div class="text-[9px] uppercase tracking-[0.3em] font-black opacity-60">Project Selesai</div>
+                    
+                    <div class="relative reveal-up delay-200">
+                        <div class="aspect-square rounded-[3rem] bg-white/5 border border-white/10 flex items-center justify-center p-12 overflow-hidden shadow-2xl relative group backdrop-blur-sm">
+                            <div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity bg-[radial-gradient(#0066FF_1px,transparent_1px)] [background-size:20px_20px]"></div>
+                            <img src="https://image2url.com/r2/default/images/1771050595230-1961b416-b2de-43a8-a759-5988e41f5c59.webp" alt="Faures Edge Identity" class="w-2/3 h-2/3 object-contain transition-transform duration-1000 group-hover:scale-110" />
+                        </div>
+                        <div class="absolute -bottom-8 -right-4 lg:-right-8 bg-[#0066FF] text-white p-10 rounded-[2rem] shadow-2xl z-10 shadow-blue-500/20">
+                            <div class="text-6xl font-black mb-1 tracking-tighter">50+</div>
+                            <div class="text-[9px] uppercase tracking-[0.3em] font-black opacity-60">Project Selesai</div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="mb-40 reveal-up">
+                    <div class="text-center mb-16">
+                        <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#0066FF] mb-4">The Stack</h2>
+                        <p class="text-4xl md:text-5xl font-black text-white tracking-tight">Teknologi & Tools</p>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+                        <div class="tool-tag">React.js</div>
+                        <div class="tool-tag">Next.js</div>
+                        <div class="tool-tag">Tailwind CSS</div>
+                        <div class="tool-tag">Figma</div>
+                        <div class="tool-tag">JavaScript ES6</div>
+                        <div class="tool-tag">Node.js</div>
+                        <div class="tool-tag">Laravel</div>
+                        <div class="tool-tag">Responsive Core</div>
+                        <div class="tool-tag">SEO Strategy</div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card-value p-12 reveal-up">
+                        <div class="mb-10 text-[#0066FF]">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <h3 class="text-2xl font-black mb-6 uppercase tracking-tighter text-white">Integritas</h3>
+                        <p class="text-white/40 text-sm leading-relaxed font-medium">Kami jujur dalam setiap estimasi waktu dan biaya. Tidak ada biaya tersembunyi atau janji yang tidak realistis.</p>
+                    </div>
+
+                    <div class="card-value p-12 reveal-up delay-100">
+                        <div class="mb-10 text-[#0066FF]">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        </div>
+                        <h3 class="text-2xl font-black mb-6 uppercase tracking-tighter text-white">Kualitas Kode</h3>
+                        <p class="text-white/40 text-sm leading-relaxed font-medium">Setiap baris kode ditulis dengan presisi tinggi, terstruktur, dan mudah untuk dikembangkan di masa depan.</p>
+                    </div>
+
+                    <div class="card-value p-12 reveal-up delay-200">
+                        <div class="mb-10 text-[#0066FF]">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-black mb-6 uppercase tracking-tighter text-white">Kemitraan</h3>
+                        <p class="text-white/40 text-sm leading-relaxed font-medium">Kepuasan Anda adalah prioritas. Kami bekerja sebagai partner strategis untuk pertumbuhan bisnis Anda.</p>
+                    </div>
+                </div>
+
+                <div class="mt-40 text-center reveal-up">
+                    <h4 class="text-3xl md:text-6xl font-black text-white tracking-tighter mb-12 uppercase leading-none">Siap Meningkatkan <br> <span class="text-transparent" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.8);">Standar Brand Anda?</span></h4>
+                    <a href="kontak" class="inline-block bg-white text-black px-12 py-6 font-black uppercase text-[10px] tracking-[0.3em] rounded-full hover:bg-[#0066FF] hover:text-white transition-all transform hover:scale-105">
+                        Hubungi Tim Kami
+                    </a>
+                </div>
+
             </div>
+        </main>
 
-            <!-- Technology Section -->
-            <div class="mb-40 reveal-up">
-                <div class="text-center mb-16">
-                    <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#0066FF] mb-4">The Stack</h2>
-                    <p class="text-4xl md:text-5xl font-black text-white tracking-tight">Teknologi & Tools</p>
-                </div>
-                <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-                    <div class="tool-tag">React.js</div>
-                    <div class="tool-tag">Next.js</div>
-                    <div class="tool-tag">Tailwind CSS</div>
-                    <div class="tool-tag">Figma</div>
-                    <div class="tool-tag">JavaScript ES6</div>
-                    <div class="tool-tag">Node.js</div>
-                    <div class="tool-tag">Laravel</div>
-                    <div class="tool-tag">Responsive Core</div>
-                    <div class="tool-tag">SEO Strategy</div>
-                </div>
-            </div>
-
-            <!-- Values Section (Bento Grid Style) -->
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Value 1 -->
-                <div class="card-value p-12 reveal-up">
-                    <div class="mb-10 text-[#0066FF]">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                    </div>
-                    <h3 class="text-2xl font-black mb-6 uppercase tracking-tighter text-white">Integritas</h3>
-                    <p class="text-white/40 text-sm leading-relaxed font-medium">Kami jujur dalam setiap estimasi waktu dan biaya. Tidak ada biaya tersembunyi atau janji yang tidak realistis.</p>
-                </div>
-
-                <!-- Value 2 -->
-                <div class="card-value p-12 reveal-up delay-100">
-                    <div class="mb-10 text-[#0066FF]">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                    </div>
-                    <h3 class="text-2xl font-black mb-6 uppercase tracking-tighter text-white">Kualitas Kode</h3>
-                    <p class="text-white/40 text-sm leading-relaxed font-medium">Setiap baris kode ditulis dengan presisi tinggi, terstruktur, dan mudah untuk dikembangkan di masa depan.</p>
-                </div>
-
-                <!-- Value 3 -->
-                <div class="card-value p-12 reveal-up delay-200">
-                    <div class="mb-10 text-[#0066FF]">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-black mb-6 uppercase tracking-tighter text-white">Kemitraan</h3>
-                    <p class="text-white/40 text-sm leading-relaxed font-medium">Kepuasan Anda adalah prioritas. Kami bekerja sebagai partner strategis untuk pertumbuhan bisnis Anda.</p>
-                </div>
-            </div>
-
-            <!-- Bottom Editorial Section -->
-            <div class="mt-40 text-center reveal-up">
-                <h4 class="text-3xl md:text-6xl font-black text-white tracking-tighter mb-12 uppercase leading-none">Siap Meningkatkan <br> <span class="text-transparent" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.8);">Standar Brand Anda?</span></h4>
-                <a href="kontak" class="inline-block bg-white text-black px-12 py-6 font-black uppercase text-[10px] tracking-[0.3em] rounded-full hover:bg-[#0066FF] hover:text-white transition-all transform hover:scale-105">
-                    Hubungi Tim Kami
-                </a>
-            </div>
-
-        </div>
-    </main>
-
-    <!-- FOOTER PLACEHOLDER -->
-    <div id="footer-placeholder"></div>
-    <script src="assets/js/main.js"></script>
+        <div id="footer-placeholder"></div>
+    </div> <script src="assets/js/main.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Scroll Reveal Engine
+            
+            // 1. ENGINE SCROLL HALUS (LENIS)
+            if (typeof Lenis !== 'undefined') {
+                const lenis = new Lenis({
+                    duration: 1.2,
+                    smooth: true,
+                });
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+                requestAnimationFrame(raf);
+            }
+
+            // 2. SISTEM REVEAL ANTI-GAGAL
+            const revealElements = document.querySelectorAll('.reveal-up');
+            
             const observerOptions = {
                 root: null,
-                rootMargin: '0px 0px -50px 0px',
-                threshold: 0.1
+                rootMargin: '300px', // Jarak deteksi super agresif
+                threshold: 0
             };
 
             const observer = new IntersectionObserver((entries) => {
@@ -236,18 +258,42 @@
                 });
             }, observerOptions);
 
-            const revealElements = document.querySelectorAll('.reveal-up');
             revealElements.forEach(el => observer.observe(el));
 
-            // Navbar Dynamic Scroll & Progress Bar
+            // 3. SISTEM FALLBACK BACKUP PADA SCROLL & LOAD
+            const forceRevealCheck = () => {
+                revealElements.forEach(el => {
+                    if (!el.classList.contains('is-visible')) {
+                        const rect = el.getBoundingClientRect();
+                        if (rect.top <= window.innerHeight + 300) {
+                            el.classList.add('is-visible');
+                        }
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', forceRevealCheck);
+            window.addEventListener('load', forceRevealCheck);
+            setTimeout(forceRevealCheck, 300);
+
+            // 4. GARANSI 100% TAMPIL (Ultimate Failsafe untuk halaman pendek)
+            setTimeout(() => {
+                revealElements.forEach(el => {
+                    if (!el.classList.contains('is-visible')) {
+                        el.classList.add('is-visible');
+                    }
+                });
+            }, 1200);
+
+            // 5. LOGIKA HEADER & PROGRESS BAR ANDA
             const headerPlaceholder = document.getElementById('header-placeholder');
             const progressBar = document.getElementById('progress-bar');
 
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 20) {
-                    headerPlaceholder.classList.add('header-scrolled');
+                    if(headerPlaceholder) headerPlaceholder.classList.add('header-scrolled');
                 } else {
-                    headerPlaceholder.classList.remove('header-scrolled');
+                    if(headerPlaceholder) headerPlaceholder.classList.remove('header-scrolled');
                 }
 
                 const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -255,15 +301,7 @@
                 const scrolled = (winScroll / height) * 100;
                 if (progressBar) progressBar.style.width = scrolled + "%";
             });
-
-            // Handle initial load visibility
-            setTimeout(() => {
-                revealElements.forEach(el => {
-                    if(el.getBoundingClientRect().top < window.innerHeight) {
-                        el.classList.add('is-visible');
-                    }
-                });
-            }, 100);
+            
         });
     </script>
 </body>
